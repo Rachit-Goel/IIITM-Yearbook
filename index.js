@@ -4,90 +4,42 @@ const async = require('async')
 var bodyParser = require('body-parser');
 var path = require('path');
 const port = 3000;
-// const fs = require('fs');
-// const readline = require('readline');
-// const {google} = require('googleapis');
-// const credentials = require('./credentials.json');
-// var auth
-app.use(express.static(path.join(__dirname+'/public')))
+var data =[];
+var imgs=[]
+
+// app.use(express.static(path.join(__dirname+'/public')))
+app.use(express.static(__dirname+'/Views'))
+
+app.use(bodyParser.urlencoded({extended: true}));
+app.set("view engine", "ejs");
 
 // app.get('/', function (req, res) {
 //   res.send("hello");
 // })
 
-app.get('/index.html', function (req, res) {
-  res.sendFile( path.join(__dirname + "/public/index.html") );
-})
 app.get('/', function (req, res) {
-  res.send("hello");
+  // res.sendFile( path.join(__dirname + "/public/index.html") );
+
+  res.render("index-Copy",{imgs:imgs});
 })
-
-// const scopes = [
-//   "https://www.googleapis.com/auth/drive",
-//   "https://www.googleapis.com/auth/drive.file",
-//   "https://www.googleapis.com/auth/drive.readonly",
-//   "https://www.googleapis.com/auth/drive.metadata.readonly",
-//   "https://www.googleapis.com/auth/drive.appdata",
-//   "https://www.googleapis.com/auth/drive.metadata",
-//   "https://www.googleapis.com/auth/drive.photos.readonly"
-// ];
-// function authorize(credentials) {
-//   console.log("credentials",credentials)
-//   const {client_secret, client_id, redirect_uris} = credentials.installed;
-//   console.log("secret",client_secret)
-//   auth = new google.auth.OAuth2(
-//       client_id, client_secret, redirect_uris[0]);
-// }
-
-// fs.readFile('credentials.json', (err, content) => {
-//   if (err) return console.log('Error loading client secret file:', err);
-//   // Authorize a client with credentials, then call the Google Drive API.
-//   authorize(JSON.parse(content));
-// });
-
-
-
-// const drive = google.drive({ version: "v3", auth });
-
-// drive.files.list({}, (err, res) => {
-//   if (err) throw err;
-//   const files = res.data.files;
-//   if (files.length) {
-//   files.map((file) => {
-//     console.log(file);
-//   });
-//   } else {
-//     console.log('No files found');
-//   }
-// });
-
-// var fileId = '1fw6Bd3SXIdYKxX_Es8qeZHE_2gSmeQi5';
-// // var dest = fs.createWriteStream('/Gwalior fort/photo.jpg');
-// var link = drive.files.get({
-//   fileId: fileId,
-//   alt: 'media'
+// app.get('/', function (req, res) {
+//   res.send("hello");
 // })
-//     .on('end', function () {
-//       console.log('Done');
-//     })
-//     .on('error', function (err) {
-//       console.log('Error during download', err);
-//     })
-//     .then((data)=>{
-//       console.log("data",data)
-//     })
+
 const fs = require('fs');
 const readline = require('readline');
 const {google} = require('googleapis');
 
 // If modifying these scopes, delete token.json.
-const SCOPES = [ "https://www.googleapis.com/auth/drive",
+const SCOPES = [
+  "https://www.googleapis.com/auth/drive",
   "https://www.googleapis.com/auth/drive.file",
   "https://www.googleapis.com/auth/drive.readonly",
   "https://www.googleapis.com/auth/drive.metadata.readonly",
   "https://www.googleapis.com/auth/drive.appdata",
   "https://www.googleapis.com/auth/drive.metadata",
-  "https://www.googleapis.com/auth/drive.photos.readonly"];
+  "https://www.googleapis.com/auth/drive.photos.readonly"
+];
 // The file token.json stores the user's access and refresh tokens, and is
 // created automatically when the authorization flow completes for the first
 // time.
@@ -150,6 +102,29 @@ function getAccessToken(oAuth2Client, callback) {
   });
 }
 
+function makeUrl (id){
+  var str = "https://drive.google.com/uc?export=view&id="
+  var url = str + id
+  return url
+}
+
+function urlFromData(data){
+  data.forEach((item)=>{
+    var url = makeUrl(item.id)
+    imgs.push(url)
+  })
+  app.render('index-Copy',{imgs:imgs},function(err,html){
+    console.log("re rendering")
+    if(err){
+      console.log(err)
+
+    }
+  })
+
+  // console.log(imgs)     <%console.log(imgs)%> <img src= <% imgs[1] %> >     <%console.log(imgs[1])%>
+
+
+}
 /**
  * Lists the names and IDs of up to 10 files.
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
@@ -157,7 +132,6 @@ function getAccessToken(oAuth2Client, callback) {
 function listFiles(auth) {
   const drive = google.drive({version: 'v3', auth});
 //   var fileId = '1fw6Bd3SXIdYKxX_Es8qeZHE_2gSmeQi5';
-  var data =[];
   var pageToken = null;
 // Using the NPM module 'async'
 async.doWhilst(
@@ -193,12 +167,15 @@ async.doWhilst(
     console.error(err);
   } else {
     // All pages fetched
-    console.log(data)
+    // console.log(data)
+    urlFromData(data)
   }
 })
 // console.log(data)
 }
 
+
+
 app.listen(port, () => {
-  console.log(`hello`);
+  console.log(`server running at port ${port}`);
 });

@@ -1,0 +1,16 @@
+<%if(imgs.length!=0){%>
+    <h1>
+        images
+    </h1>
+       <% imgs.forEach((item)=>{%>
+       <div>
+        <img src= <%=item%> width="50%" height="50%">
+       </div>
+        <br/>
+        <%})%>
+        <%}else{%>
+            <h1>
+                Loading
+            </h1>
+            <%}%>
+            
