@@ -160,7 +160,8 @@ function listFiles(auth) {
   var data =[];
   var pageToken = null;
 // Using the NPM module 'async'
-async.doWhilst(function (callback) {
+async.doWhilst(
+  function (callback) {
   drive.files.list({
     q: "'130Qky-7YRK1hpccueRwHLODVoiu78S8p' in parents",
     fields: 'nextPageToken, files(id, name)',
@@ -183,7 +184,8 @@ async.doWhilst(function (callback) {
       callback();
     }
   });
-}, function () {
+}, function (callback) {
+  callback();
   return !!pageToken;
 }, function (err) {
   if (err) {
@@ -191,10 +193,10 @@ async.doWhilst(function (callback) {
     console.error(err);
   } else {
     // All pages fetched
-    // console.log(data)
+    console.log(data)
   }
 })
-console.log(data)
+// console.log(data)
 }
 
 app.listen(port, () => {
