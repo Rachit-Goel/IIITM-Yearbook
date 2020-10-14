@@ -7,7 +7,7 @@ const port = 3000;
 var data =[];
 var imgs=[]
 
-// app.use(express.static(path.join(__dirname+'/public')))
+// app.use(express.static(path.join(__dirname, '/public')))
 app.use(express.static(__dirname+'/Views'))
 
 app.use(bodyParser.urlencoded({extended: true}));
