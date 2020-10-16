@@ -1,0 +1,65 @@
+
+
+    
+            <% if(imgs.length){%>
+                <div class="col-lg-10 col-md-9 col-12 body_block  align-content-center">
+                                    <div class="portfolio">
+                                        <div class="container-fluid">
+                                            <!--=================== masaonry portfolio start====================-->
+                                            <div class="grid img-container justify-content-center no-gutters">
+                                                <%var c=0%>
+                                                    <%for(var i=0;i<=imgs.length/3-1;i++){%>
+                                                        <div class="row">
+                                                            <%for(var j=0;j<=2;j++){%>
+                                                                <div  class="column project_box_one ">
+                                                                    <a href=<%=imgs[c]%>  title="memories">
+                                                                     <img  src=<%=imgs[c]%> alt="memo" " style="width:80%/>     <!--style="width:80% -->
+                                                                        <div class="product_info">
+                                                                            <div class="product_info_text">
+                                                                                <div class="product_info_text_inner">
+                                                                                    <i class="ion ion-plus"></i>
+                                                                                    <h4>VIEW</br>in</br>Slideshow</h4>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                </a>
+                                                                </div>
+                                                                <% c++;}%>
+                                                        </div>
+
+                                                        <%}%>
+                                            </div>
+
+                                            <!--=================== masaonry portfolio end====================-->
+                                        </div>
+                                    </div>
+                                </div>
+            <%}else{%>
+                <div class="loader">
+                        <div class="loader-outter"></div>
+                        <div class="loader-inner"></div>
+                </div> 
+            <%}%>
+    
+</div>
+</div>        
+  </body>    
+    <!-- jquery -->
+    <script src="assets/js/jquery.min.js"></script>
+    <!-- bootstrap -->
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <!--slick carousel -->
+    <script src="assets/js/slick.min.js"></script>
+    <!--Portfolio Filter-->
+    <script src="assets/js/imgloaded.js"></script>
+    <script src="assets/js/isotope.js"></script>
+    <!-- Magnific-popup -->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <!--Counter-->
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <!-- WOW JS -->
+    <script src="assets/js/wow.min.js"></script>
+    <!-- Custom js -->
+    <script src="assets/js/main.js"></script>
