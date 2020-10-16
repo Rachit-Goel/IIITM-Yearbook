@@ -82,6 +82,6 @@ fetchData("category4",imgs4)
 //   console.log(`server running at port ${port}`);
 // });
 
-app.listen(3000, process.env.IP, function(){
+app.listen(process.env.PORT, process.env.IP, function(){
   console.log("server started");
 })
