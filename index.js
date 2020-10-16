@@ -78,6 +78,10 @@ fetchData("category2",imgs2)
 fetchData("category3",imgs3)
 fetchData("category4",imgs4)
 
-app.listen(port, () => {
-  console.log(`server running at port ${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`server running at port ${port}`);
+// });
+
+app.listen(process.env.PORT, process.env.IP, function(){
+  console.log("server started");
+})
