@@ -21,7 +21,7 @@ const firebaseConfig = {
     appId: "1:693138307006:web:54f997d613456a3f5f2bef"
 };
 firebase.initializeApp(firebaseConfig);
-app.use(express.static(__dirname+'/Views'))
+app.use(express.static(__dirname+'/views'))
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 // app.engine('html', require('ejs-locals'));
@@ -82,6 +82,6 @@ fetchData("category4",imgs4)
 //   console.log(`server running at port ${port}`);
 // });
 
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(3000, process.env.IP, function(){
   console.log("server started");
 })
