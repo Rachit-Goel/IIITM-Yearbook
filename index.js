@@ -28,23 +28,31 @@ app.set("view engine", "ejs");
 
 app.get('/', function (req, res) {
 
-  res.render("home");
+  res.render("home",{home:true});
+})
+app.get('/about', function (req, res) {
+
+  res.render("about");
+})
+app.get('/contact', function (req, res) {
+
+  res.render("contact");
 })
 app.get('/cat1', function (req, res) {
 
-  res.render("home",{imgs:imgs1,class:"category1"});
+  res.render("home",{imgs:imgs1,class:"category1",home:false});
 })
 app.get('/cat2', function (req, res) {
 
-  res.render("home",{imgs:imgs2,class:"category2"});
+  res.render("home",{imgs:imgs2,class:"category2",home:false});
 })
 app.get('/cat3', function (req, res) {
 
-  res.render("home",{imgs:imgs3,class:"category3"});
+  res.render("home",{imgs:imgs3,class:"category3",home:false});
 })
 app.get('/cat4', function (req, res) {
 
-  res.render("home",{imgs:imgs4,class:"category4"});
+  res.render("home",{imgs:imgs4,class:"category4",home:false});
 })
 
 async function fetchData(collection,array){

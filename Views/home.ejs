@@ -1,3 +1,14 @@
-
 <%- include('sidebar.ejs') %>
-<%- include('index-Copy.ejs',{imgs:imgs}) %>
+
+    <%if(home){%>
+        <div class="col-lg-10 col-md-9 col-12 body_block align-content-center">
+            <h1>
+                Select a Category
+            </h1>
+        </div>
+
+        <%}else{%>
+            <%- include('index-Copy.ejs',{imgs:imgs}) %>
+
+
+                <%}%>
