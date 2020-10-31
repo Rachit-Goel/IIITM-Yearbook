@@ -78,13 +78,37 @@ $(document).ready(function() {
     $grid.imagesLoaded().progress( function() {
         $grid.isotope('layout');
     });
-    $('#filtr-container').on( 'click', 'li', function(e) {
-        e.preventDefault();
-        $('#filtr-container li').removeClass('active');
-        $(this).closest('li').addClass('active');
-        var filterValue = $(this).attr('data-filter');
-        $grid.isotope({ filter: filterValue });
-    });
+    
+    // $('.filter_nav li').on( 'click',function() {
+    //     $('.filter_nav li  ').removeClass('active');
+    //     $(this).addClass('active');
+
+    //     console.log("chla")
+        
+    //     // $('#filtr-container').on( 'click', 'li a div', function(e) {
+    //     // });
+    //     // window.location="/cat1";
+    //     // var filterValue = $(this).attr('data-filter');
+    //     // $grid.isotope({ filter: filterValue });
+    // });
+    
+    // $('.filter_nav li a').on( 'click',function() {
+    //     // $('.filter_nav li a ').removeClass('active');
+    //     $(this).addClass('active');
+
+    //     console.log("chla 2")
+
+    // });
+    
+    // $('.side_menu_section').on( 'click', 'li', function(e){
+    //     e.preventDefault();
+    //     $('.side_menu_section li').removeClass('active');
+    //     $(this).closest('li').addClass('active');
+    // });
+
+    // $(".filter_nav").click(function(){
+    //     $("li").toggleClass("active");
+    //   });
 
     /* ==============================================
      pop up
@@ -115,6 +139,21 @@ $(document).ready(function() {
                 return element.find('img');
             }
         }
+        //     delegate: 'a',
+        // type: 'image',
+        // removalDelay: 300,
+        // gallery:{
+        //     enabled:true,
+        // },
+        // mainClass: 'mfp-with-zoom',
+        // zoom: {
+        //     enabled: true,
+        //     duration: 300,
+        //     easing: 'ease-in-out',
+        //     opener: function(openerElement) {
+        //         return openerElement.is('img') ? openerElement : openerElement.find('img');
+        //     }
+        // }
     });
 
     /* ==============================================

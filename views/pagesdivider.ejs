@@ -1,0 +1,34 @@
+<nav>
+		<% if (pageCount > 1) { %>
+	        <ul class="pagination">
+	            <% if (currentPage > 1) { %>
+	                <li class="page-item"><a class="page-link" href="/<%=route%>?page=1">&laquo;</a></li>
+	            <% } %>
+	            <% var i = 1;
+	            if (currentPage > 5) {
+	                i = +currentPage - 4;
+	            } %>
+	            <% if (i !== 1) { %>
+	                <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
+	            <% } %>
+	            <% for (i; i<=pageCount; i++) { %>
+	                <% if (currentPage == i) { %>
+	                    <li class="page-item active"> 
+						 <a class="page-link" href="#"><%= i %>  <span class="sr-only">(current)</span></a>
+						 </li>
+	                <% } else { %>
+	                    <li class="page-item"><a class="page-link" href="/<%=route%>?page=<%= i %>"><%= i %></a></li>
+	                <% } %>
+	                <% if (i == (+currentPage + 4)) { %>
+	                    <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
+	                <% break; } %>
+	            <% } %>
+	            <% if (currentPage != pageCount) { %>
+	                <li class="page-item"><a class="page-link" href="/<%=route%>?page=<%= pageCount %>">&raquo;</a></li>
+	            <% } %>
+	        </ul>
+	    <% } %>
+</nav>
+	
+
+ 

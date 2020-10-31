@@ -1,14 +1,63 @@
-<%- include('sidebar.ejs') %>
+<%- include('sidebar.ejs',{home:home}) %>
 
     <%if(home){%>
-        <div class="col-lg-10 col-md-9 col-12 body_block align-content-center">
-            <h1>
-                Select a Category
-            </h1>
-        </div>
+        <div class="col-lg-10 col-md-9 col-12 body_block align-content-center ">
+            <div class="container">
+                <div class=" row ">
+                    <div class="col " style=" display:flex;align-items:center; justify-content:center; margin-bottom:20px">
+                        <a href="/cat1 ">
+                            <div class="card " style="width: 25rem; ">
+                                <img class="card-img-top " src="https://cdn.theculturetrip.com/wp-content/uploads/2018/02/feature-image-v1-1.jpg " alt="Card image cap " style="width:398px; height:265.45">
+                                <div class="card-body " style="padding:0.6rem;">
+                                    <h5 class="card-title " style="margin-bottom: .3rem; font-size:15px;">Category 1</h5>
+                                    <p class="card-text" style="font-size: 13px; line-height: 1.2;font-weight: 400;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <!-- <a href="# " class="btn btn-primary ">Go somewhere</a> -->
+                                </div>
+                            </div>
+                        </a>
 
-        <%}else{%>
-            <%- include('index-Copy.ejs',{imgs:imgs}) %>
+                    </div>
+                    <div class="col " style=" display:flex;align-items:center; justify-content:center;margin-bottom:20px ">
+                        <a href="/cat2 ">
+                            <div class="card " style="width: 25rem; ">
+                                <img class="card-img-top " src="https://images.unsplash.com/photo-1515238152791-8216bfdf89a7?ixlib=rb-1.2.1&w=1000&q=80 " alt="Card image cap " style="width:398px; height:265.45">
+                                <div class="card-body " style="padding:0.6rem;">
+                                    <h5 class="card-title " style="margin-bottom: .3rem; font-size:15px;">Category 2</h5>
+                                    <p class="card-text" style="font-size: 13px; line-height: 1.2;font-weight: 400;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <!-- <a href="# " class="btn btn-primary ">Go somewhere</a> -->
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col " style=" display:flex;align-items:center; justify-content:center;margin-bottom:20px">
+                        <a href="/cat3 ">
+                            <div class="card " style="width: 25rem; ">
+                                <img class="card-img-top " src="https://img.traveltriangle.com/blog/wp-content/uploads/2020/04/snow-covered-place.jpg" alt="Card image cap " style="width:398px; height:265.45;">
+                                <div class="card-body " style="padding:0.6rem;">
+                                    <h5 class="card-title " style="margin-bottom: .3rem; font-size:15px;">Category 3</h5>
+                                    <p class="card-text" style="font-size: 13px; line-height: 1.2;font-weight: 400;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <!-- <a href="# " class="btn btn-primary ">Go somewhere</a> -->
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col " style=" display:flex;align-items:center; justify-content:center;margin-bottom:20px">
+                        <a href="/cat4 ">
+                            <div class="card " style="width: 25rem; ">
+                                <img class="card-img-top " src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&w=1000&q=80 " alt="Card image cap " style="width:398px; height:265.45">
+                                <div class="card-body " style="padding:0.6rem;">
+                                    <h5 class="card-title " style="margin-bottom: .3rem; font-size:15px;">Category 4</h5>
+                                    <p class="card-text" style="font-size: 13px; line-height: 1.2;font-weight: 400;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <!-- <a href="# " class="btn btn-primary ">Go somewhere</a> -->
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
 
-                <%}%>
+            <%}else{%>
+                <%- include('index-Copy.ejs',{imgs:imgs}) %>
+                    <%}%>

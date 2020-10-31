@@ -10,7 +10,10 @@
 <link href="assets/css/ionicons.min.css" rel="stylesheet">
 <link href="assets/css/slick.css" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/magnific-popup.css">
+<!-- <link rel="stylesheet" href="assets/css/atlantiss.css"> -->
+
 <link rel="stylesheet" href="assets/css/animate.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
 <link href="assets/css/main.css" rel="stylesheet">
 <style>
     .row {
@@ -23,69 +26,79 @@
     }
 </style>
 </head>
-<body>
-<div class="body-container container-fluid">
-    <a class="menu-btn" href="javascript:void(0)">
-        <i class="ion ion-grid"></i>
-    </a>
-    <div class="row justify-content-center">
-        <div class="col-lg-2 col-md-3 col-12 menu_block">
 
-            <div class="logo_box" style="font-size:35px; font-weight:900; font-family:Helvetica; letter-spacing:3px">
-                <a href="/">
-                    IIITM</br> Yearbook</br>2020
+<body>
+
+    <div class="body-container container-fluid">
+
+        <a class="menu-btn" href="javascript:void(0)">
+            <i class="ion ion-grid"></i>
+        </a>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-2 col-md-3 col-12 menu_block">
+
+                <div class="logo_box" style="font-size:30px; color: #99896e; font-weight:400; font-family:Helvetica;  letter-spacing:2px;  " >
+                    <a href="/">
+                    <span style=" letter-spacing:18px">IIIT</span>M</br><span>Yearbook</span></br><span style=" letter-spacing:24px">202</span>0
                 </a>
-            </div>
-            <div class="side_menu_section">
-                <ul class="menu_nav">
-                    <li class="active">
-                        <a href="/">
+                </div>
+                <div class="side_menu_section">
+                    <ul class="menu_nav">
+                        <li>      <!--  class="active" -->
+                            <a href="/">
                     Home
                 </a>
-                    </li>
-                    <li>
-                        <a href="/about">
+                        </li>
+                        <li>
+                            <a href="/about">
                     About Us
                 </a>
-                    </li>
-                    <li>
-                        <a href="/contact">
+                        </li>
+                        <li>
+                            <a href="/contact">
                     Contact
                 </a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="side_menu_section">
-                <h4 class="side_title">filter by:</h4>
-                <ul  class="filter_nav">
-                    <li > <a href="/cat1">category1</a></li>
-                    <li ><a href="/cat2">category2</a></li>
-                    <li ><a href="/cat3">category3</a></li>
-                    <li ><a href="/cat4">category4</a></li>
-                </ul>
-            </div>
-            <div class="side_menu_bottom">
-                <div class="side_menu_bottom_inner">
-                    <ul class="social_menu">
-                        <li>
-                            <a href="#"> <i class="ion ion-social-pinterest"></i> </a>
-                        </li>
-                        <li>
-                            <a href="#"> <i class="ion ion-social-facebook"></i> </a>
-                        </li>
-                        <li>
-                            <a href="#"> <i class="ion ion-social-twitter"></i> </a>
                         </li>
                     </ul>
-                    <div class="copy_right">
-                        <p class="copyright">Copyright &copy;
-                            <script>
-                                document.write(new Date().getFullYear());
-                            </script> All rights reserved 
-                    </div>
                 </div>
+                <% if(!home){ %>
+                    <div class="side_menu_section">
+                        <h4 class="side_title">filter by:</h4>
+                        <ul id="filtr-container" class="filter_nav">
+                            <li>
+                                <a href="/cat1">
+                                    category1
+                                </a>
+                            </li>
+
+                            <li><a href="/cat2">category2</a></li>
+                            <li><a href="/cat3">category3</a></li>
+                            <li><a href="/cat4">category4</a></li>
+                        </ul>
+                    </div>
+
+                    <%}%>
+
+                        <div class="side_menu_bottom">
+                            <div class="side_menu_bottom_inner">
+                                <ul class="social_menu">
+                                    <li>
+                                        <a href="#"> <i class="ion ion-social-pinterest"></i> </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> <i class="ion ion-social-facebook"></i> </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"> <i class="ion ion-social-twitter"></i> </a>
+                                    </li>
+                                </ul>
+                                <div class="copy_right">
+                                    <p class="copyright">Copyright &copy;
+                                        <script>
+                                            document.write(new Date().getFullYear());
+                                        </script> All rights reserved
+                                </div>
+                            </div>
+                        </div>
             </div>
-        </div>
-        
-    
