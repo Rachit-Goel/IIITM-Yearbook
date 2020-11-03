@@ -1,6 +1,9 @@
 const fs = require('fs');
 const readline = require('readline');
 const {google} = require('googleapis');
+const async = require('async');
+const { time } = require('console');
+const { checkServerIdentity } = require('tls');
 const SCOPES = [
   "https://www.googleapis.com/auth/drive",
   "https://www.googleapis.com/auth/drive.file",
@@ -10,12 +13,16 @@ const SCOPES = [
   "https://www.googleapis.com/auth/drive.metadata",
   "https://www.googleapis.com/auth/drive.photos.readonly"
 ];
-
+var oAuth2Client
+var data=[];
+var yearbook=[];
 const TOKEN_PATH = 'token.json';
+var drive
+var pageToken = null;
 
 fs.readFile('credentials.json', (err, content) => {
   if (err) return console.log('Error loading client secret file:', err);
-  authorize(JSON.parse(content), listFiles);
+  authorize(JSON.parse(content),listFiles);
 });
 
 /**
@@ -26,7 +33,7 @@ fs.readFile('credentials.json', (err, content) => {
  */
 function authorize(credentials, callback) {
   const {client_secret, client_id, redirect_uris} = credentials.web;
-  const oAuth2Client = new google.auth.OAuth2(
+  oAuth2Client = new google.auth.OAuth2(
       client_id, client_secret, redirect_uris[0]);
 
   // Check if we have previously stored a token.
@@ -97,23 +104,39 @@ function urlFromData(data){
  * Lists the names and IDs of up to 10 files.
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
-function listFiles(auth) {
-  const drive = google.drive({version: 'v3', auth});
-//   var fileId = '1fw6Bd3SXIdYKxX_Es8qeZHE_2gSmeQi5';
-  var pageToken = null;
-// Using the NPM module 'async'
-async.doWhilst(
-  function (callback) {
+
+function f3(err) {
+  if (err) {
+    // Handle error
+    console.error(err);
+  } else {
+    // All pages fetched
+    // console.log(data)
+    // yearbook=[...data]
+    // yearbook.forEach((item)=>{
+    //   item.data=[]
+    //   async.doWhilst(f1(pageToken,item.id),f2(pageToken),f3())
+    // })
+    // console.log(data)
+    check();
+    // urlFromData(data)
+  }
+}
+
+
+
+function f1(pageToken,fileid) {
+  
   drive.files.list({
-    q: "'130Qky-7YRK1hpccueRwHLODVoiu78S8p' in parents",
+    q: fileid + " in parents",
     fields: 'nextPageToken, files(id, name)',
     spaces: 'drive',
     pageToken: pageToken
   }, function (err, res) {
     if (err) {
       // Handle error
-      console.error(err);
-      callback(err)
+      // console.error(err);
+      f3(err)
     } else {
       // res.data.files.forEach(function (file) {
       //   console.log('Found file: ', file.name, file.id);
@@ -122,22 +145,221 @@ async.doWhilst(
       // console.log(res.data.files)
       data= [...res.data.files]
       // console.log(data)
+     
       pageToken = res.nextPageToken;
-      callback();
+      f3();
     }
   });
-}, function (callback) {
-  callback();
+}
+function f2(pageToken) {
+  f3();
   return !!pageToken;
-}, function (err) {
-  if (err) {
-    // Handle error
-    console.error(err);
-  } else {
+}
+
+function f6(item) {
+  // if (err) {
+  //   // Handle error
+  //   console.error(err);
+  // } else {
     // All pages fetched
     // console.log(data)
-    urlFromData(data)
-  }
-})
-// console.log(data)
+    // yearbook=[...data]
+    // yearbook.forEach((item)=>{
+    //   item.data=[]
+    //   async.doWhilst(f1(pageToken,item.id),f2(pageToken),f3())
+    // })
+    // console.log("data=",data)
+    // console.log("item=",item)
+    // if(item!="0"){
+      item.data=[...data];
+      yearbook.forEach((e)=>{
+        if(item.id==e.id){
+          e=item
+          // console.log("e=",e)
+        }
+        
+      })
+    // }
+    // console.log("f3 se yearbook=",yearbook)
+    // console.log("f3 se yearbook",yearbook)
+    check2();
+    // urlFromData(data)
+  // }
 }
+
+
+
+function f4(pageToken,fileid,item) {
+  
+  drive.files.list({
+    q: fileid + " in parents",
+    fields: 'nextPageToken, files(id, name)',
+    spaces: 'drive',
+    pageToken: pageToken
+  }, function (err, res) {
+    if (err) {
+      // Handle error
+      // console.error(err);
+      f6(item)
+    } else {
+      // res.data.files.forEach(function (file) {
+      //   console.log('Found file: ', file.name, file.id);
+      //   data.push(file)
+      // });
+      // console.log(res.data.files)
+      data= [...res.data.files]
+      // console.log(data)
+     
+      pageToken = res.nextPageToken;
+      f6(item);
+    }
+  });
+}
+function f5(pageToken,item) {
+  f6(item);
+  return !!pageToken;
+}
+
+function f9(item) {
+  // if (err) {
+  //   // Handle error
+  //   console.error(err);
+  // } else {
+    // All pages fetched
+    // console.log(data)
+    // yearbook=[...data]
+    // yearbook.forEach((item)=>{
+    //   item.data=[]
+    //   async.doWhilst(f1(pageToken,item.id),f2(pageToken),f3())
+    // })
+    // console.log("data=",data)
+    // console.log("item=",item)
+    // if(item!="0"){
+      item.data=[...data];
+      yearbook.forEach((e)=>{
+        if(item.id==e.id){
+          e=item
+          // console.log("e=",e)
+        }
+        
+      })
+    // }
+    console.log("\n....start...\n");
+    console.log("f9 se yearbook trips ka folder =",(yearbook[9].data));
+    // console.log("f9 se yearbook=",(yearbook[2].data));
+    // console.log("f3 se yearbook",yearbook)
+    
+    // check2();
+    // urlFromData(data)
+  // }
+}
+
+
+
+function f7(pageToken,fileid,item) {
+  
+  drive.files.list({
+    q: fileid + " in parents",
+    fields: 'nextPageToken, files(id, name)',
+    spaces: 'drive',
+    pageToken: pageToken
+  }, function (err, res) {
+    if (err) {
+      // Handle error
+      // console.error(err);
+      f9(item)
+    } else {
+      // res.data.files.forEach(function (file) {
+      //   console.log('Found file: ', file.name, file.id);
+      //   data.push(file)
+      // });
+      // console.log(res.data.files)
+      data= [...res.data.files]
+      // console.log(data)
+     
+      pageToken = res.nextPageToken;
+      f9(item);
+    }
+  });
+}
+function f8(pageToken,item) {
+  f9(item);
+  return !!pageToken;
+}
+
+function listFiles(auth) {
+  // drive = google.drive({version: 'v3', auth});
+  drive = google.drive({version: 'v3', auth});
+// Using the NPM module 'async'
+async.doWhilst(f1(pageToken,"'1ufjzTrd_TwaxTrRg40P-Lo-zVcAVd0Ga'"),f2(pageToken),f3())
+// console.log(data)
+
+}
+// listFiles(oAuth2Client)
+function waitSeconds(iMilliSeconds) {
+  var counter= 0
+      , start = new Date().getTime()
+      , end = 0;
+  while (counter < iMilliSeconds) {
+      end = new Date().getTime();
+      counter = end - start;
+  }
+}
+
+function check(){
+  yearbook=[...data]
+  data=[]
+  yearbook.forEach((item)=>{
+      // if(item.name=='Year 5'){
+        item.data=[]   
+      //  console.log("check se=",item)  
+       async.doWhilst(f4(pageToken,'"'+item.id+'"',item),f5(pageToken,item),f6(item))
+      //  waitSeconds(6000)
+      // item.data=data
+      
+      
+    // }
+})   
+// console.log(yearbook)
+// console.log(yearbook[6])
+}
+
+
+function check2(){
+
+  // yearbook[].data=[...data]
+  data=[]
+  // console.log(yearbook)
+  yearbook.forEach((item)=>{
+    // console.log("\n....start...\nfolder name=",item.name);
+    // console.log(" data=",item.data);
+    // console.log("222222222222222222")
+    if(item.data!=undefined){
+      item.data.forEach((x)=>{
+        if(!((/.jpg$/.test(x.name))||(/.JPG$/.test(x.name))||(/.jpeg$/.test(x.name))||(/.png$/.test(x.name)))){  
+          x.data=[]  
+          // console.log("xi=",x)  
+          async.doWhilst(f7(pageToken,'"'+x.id+'"',x),f8(pageToken,x),f9(x))
+        }
+      })
+    }
+    
+    //   if(item.name=='Year 5'){
+        
+    //    waitSeconds(6000)
+    //   item.data=data
+      
+    // }
+})   
+// console.log(yearbook)
+// console.log(yearbook[6])
+}
+// async.doWhilst(check);
+// yearbook=[...data]
+// yearbook.forEach((item)=>{
+//      item.data=[]     
+//      async.doWhilst(f1(pageToken,item.id),f2(pageToken),f3())
+//      waitSeconds(6000)
+//      item.data=data
+// })
+
