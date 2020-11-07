@@ -26,9 +26,9 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-var folderId = "'1qSVNtmOJ3wpvCCIXFVV71bzTNZIA5_Y0'";
+var folderId = "'1PwsnZoBQReCFjG18lX8eIhPONGpxp8VC'";
 var collection = "year5"
-var collection2 = "campus life" 
+var collection2 = "random" 
 
 
 const TOKEN_PATH = 'token.json';
@@ -119,7 +119,7 @@ function urlFromData(data){
   })
 //   saveData(collection,imgs)
   saveData2(collection,collection2,imgs)
-
+// console.log(data)
   console.log("completed") 
 
   // app.render('index-Copy',{imgs:imgs},function(err,html){
@@ -144,7 +144,7 @@ function listFiles(auth) {
 async.doWhilst(
   function (callback) {
   drive.files.list({
-    q:  folderId + " in parents",
+    q:  folderId + " in parents and 	mimeType != 'application/vnd.google-apps.folder' ",
     fields: 'nextPageToken, files(id, name)',
     spaces: 'drive',
     pageToken: pageToken

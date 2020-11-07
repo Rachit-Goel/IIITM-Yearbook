@@ -4,25 +4,42 @@
 <meta name="author" content="Pharaohlab">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title> IIITM-Yearbook </title>
-<link href="assets/css/bootstrap.min.css" rel="stylesheet">
-<link href="assets/css/font-awesome.min.css" rel="stylesheet">
-<link href="assets/css/et-line.css" rel="stylesheet">
-<link href="assets/css/ionicons.min.css" rel="stylesheet">
-<link href="assets/css/slick.css" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/magnific-popup.css">
+<base href="/">
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="assets/css/et-line.css" rel="stylesheet" type="text/css">
+<link href="assets/css/ionicons.min.css" rel="stylesheet" type="text/css">
+<link href="assets/css/slick.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="assets/css/magnific-popup.css" type="text/css">
 <!-- <link rel="stylesheet" href="assets/css/atlantiss.css"> -->
 
-<link rel="stylesheet" href="assets/css/animate.min.css">
+<link rel="stylesheet" href="assets/css/animate.min.css" type="text/css">
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
-<link href="assets/css/main.css" rel="stylesheet">
+<link href="assets/css/main.css" rel="stylesheet" type="text/css">
+
 <style>
     .row {
         display: flex;
     }
     
     .column {
-        flex: 33.33%;
+        flex: 25%;
         padding: 5px;
+    }
+    
+    .dropdown-toggle::after {
+        vertical-align: 0;
+        border-top: 0.6em solid;
+        border-right: 0.7em solid transparent;
+        border-left: 0.7em solid transparent;
+    }
+    
+    .dropdown-toggle:empty::after {
+        margin-left: -3em;
+    }
+    
+    #4321 {
+        transform: rotate(20deg)
     }
 </style>
 </head>
@@ -38,27 +55,28 @@
         <div class="row justify-content-center">
             <div class="col-lg-2 col-md-3 col-12 menu_block">
 
-                <div class="logo_box" style="font-size:30px; color: #99896e; font-weight:400; font-family:Helvetica;  letter-spacing:2px;  " >
+                <div class="logo_box" style="font-size:30px; color: #99896e; font-weight:400; font-family:Helvetica;  letter-spacing:2px;  ">
                     <a href="/">
-                    <span style=" letter-spacing:18px">IIIT</span>M</br><span>Yearbook</span></br><span style=" letter-spacing:24px">202</span>0
-                </a>
+                        <span style=" letter-spacing:18px">IIIT</span>M</br><span>Yearbook</span></br><span style=" letter-spacing:24px">202</span>0
+                    </a>
                 </div>
                 <div class="side_menu_section">
                     <ul class="menu_nav">
-                        <li>      <!--  class="active" -->
+                        <li>
+                            <!--  class="active" -->
                             <a href="/">
-                    Home
-                </a>
+                                Home
+                            </a>
                         </li>
                         <li>
                             <a href="/about">
-                    About Us
-                </a>
+                                About Us
+                            </a>
                         </li>
                         <li>
                             <a href="/contact">
-                    Contact
-                </a>
+                                Contact
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -66,15 +84,158 @@
                     <div class="side_menu_section">
                         <h4 class="side_title">filter by:</h4>
                         <ul id="filtr-container" class="filter_nav">
+
+                            <li><a href="/ApnaGwalior">ApnaGwalior</a></li>
+                            <li><a href="/cat3">IIITM's got talent</a></li>
+                            <li><a href="/cat4">Individual Headshots</a></li>
                             <li>
-                                <a href="/cat1">
-                                    category1
-                                </a>
+                                <a href="">Trips</a>
+
+                                <a data-target="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="background-color:transparent"></a>
+                                <!-- <a href="/ApnaGwalior" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" onclick=window.location.href="/ApnaGwalior#pageSubmenu">Pages</a> -->
+                                <% var data =  ['ICPC-Kerala-2017',
+                                'ICPC-Kerala-2018',
+                                'IIITM_Pahadi',
+                                'Jaipur 2016',
+                                'Manali2018',
+                                'Mangalore and Mumbai 2017',
+                                'Nainital 2017',
+                                'OtherMLLTrips',
+                                'Random',
+                                'Shivpuri-2018',
+                                'kasol-kheerganga-2018',
+                                'kasol-tosh-2019',
+                                'mysuru-2019',
+                                'nandi-hills-2019',
+                                'orchha-2018',
+                                'shivpuri-2017'
+                              ] %>
+
+                                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                                        <% data.forEach(function(item){%>
+                                        <%     var path = "/Trips/"+item.split(" ").join("")%>
+                                        <li>
+                                            <a href= <%=path%> style="margin-left: 20px;">
+                                                <%= item %>
+                                            </a>
+                                        </li>
+                                        <% }) %>
+                                    </ul>
                             </li>
 
-                            <li><a href="/cat2">category2</a></li>
-                            <li><a href="/cat3">category3</a></li>
-                            <li><a href="/cat4">category4</a></li>
+                            <li>
+                                <a href="">Year1</a>
+                                <a data-target="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="background-color:transparent"></a>
+                                <ul class="collapse list-unstyled" id="pageSubmenu1">
+                                    <%[
+                                        'campus life',
+                                        'diwali',
+                                        'ganpati visarjan',
+                                        'independence day',
+                                        'infotsav',
+                                        'mom',
+                                        'parichay',
+                                        'twaran',
+                                        'urja'].forEach((item)=>{%>
+                                        <%     var path = "/Year1/"+item.split(" ").join("")%>
+                                        <li>
+                                            <a href= <%=path%> style="margin-left: 20px;">
+                                                <%= item %>
+                                            </a>
+                                        </li>
+
+                                        <%}) %>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="">Year2</a>
+                                <a data-target="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="background-color:transparent"></a>
+                                <ul class="collapse list-unstyled" id="pageSubmenu2">
+                                    <%['campus life',
+                                 'infotsav', 
+                                 'twaran', 
+                                 'urja'].forEach((item)=>{ %>
+                                            <%     var path = "/Year2/"+item.split(" ").join("")%>
+                                        <li>
+                                            <a href= <%=path%> style="margin-left: 20px;">
+                                                <%= item %>
+                                            </a>
+                                        </li>
+
+                                        <%}) %>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="">Year3</a>
+                                <a data-target="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="background-color:transparent"></a>
+                                <ul class="collapse list-unstyled" id="pageSubmenu3">
+                                    <%[ 'aurora', 'campus life', 'inter-iiit sports meet', 'urja' ].forEach((item)=>{%>
+                                       <%     var path = "/Year3/"+item.split(" ").join("")%>
+                                        <li>
+                                            <a href= <%=path%> style="margin-left: 20px;">
+                                                <%= item %>
+                                            </a>
+                                        </li>
+
+                                        <%}) %>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="">Year4</a>
+                                <a data-target="#pageSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="background-color:transparent"></a>
+                                <ul class="collapse list-unstyled" id="pageSubmenu4">
+                                    <%['campus life'
+                                       ].forEach((item)=>{ %>
+                                        <%     var path = "/Year4/"+item.split(" ").join("")%>
+                                        <li>
+                                            <a href= <%=path%> style="margin-left: 20px;">
+                                                <%= item %>
+                                            </a>
+                                        </li>
+
+                                        <%}) %>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="">Year5</a>
+                                <a data-target="#pageSubmenu5" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="background-color:transparent"></a>
+                                <ul class="collapse list-unstyled" id="pageSubmenu5">
+                                    <%[ 'campus life', 
+                                       'random'].forEach((item)=>{ %>
+                                        <%     var path = "/Year5/"+item.split(" ").join("")%>
+                                        <li>
+                                            <a href= <%=path%> style="margin-left: 20px;">
+                                                <%= item %>
+                                            </a>
+                                        </li>
+
+                                        <%}) %>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="">Clubs</a>
+                                <a data-target="#pageSubmenu6" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="background-color:transparent"></a>
+                                <ul class="collapse list-unstyled" id="pageSubmenu6">
+                                    <%[ 'AASF',
+                                     'Rotaract',
+                                      'SGM',
+                                       'Uthaan'].forEach((item)=>{ %>
+                                        <%     var path = "/Clubs/"+item.split(" ").join("")%>
+                                        <li>
+                                            <a href= <%=path%> style="margin-left: 20px;">
+                                                <%= item %>
+                                            </a>
+                                        </li>
+
+                                        <%}) %>
+                                </ul>
+                            </li>
+
                         </ul>
                     </div>
 

@@ -1,7 +1,8 @@
 <% if(imgs.length){%>
     <div class="col-lg-10 col-md-9 col-12 body_block  align-content-center">
-        <div><h3 style="font-size: 25px;">MEMORIES</h3>
-        <div style="
+        <div>
+            <h3 style="font-size: 25px;">MEMORIES</h3>
+            <div style="
             position: relative;
             top: -20px;
             left: 0;
@@ -21,16 +22,16 @@
                     <div class="img-container ">
                         <%var c=0;%>
                             <%var l=0;%>
-                                <% if((imgs.length%3)==0){l=imgs.length/3; %>
-                                    <% }else{ l=(imgs.length/3) + 1; %>
+                                <% if((imgs.length%4)==0){l=imgs.length/4; %>
+                                    <% }else{ l=(imgs.length/4) + 1; %>
                                         <% } %>
                                             <%for(var i=0;i<=l-1;i++){%>
                                                 <div class="row">
-                                                    <%for(var j=0;j<=2;j++){%>
+                                                    <%for(var j=0;j<=3;j++){%>
                                                         <%if(imgs[c]){ %>
-                                                            <div class="column project_box_one ">
+                                                            <div class="column project_box_one">
                                                                 <a href=<%=imgs[c]%>  title="memories">
-                                                                <img  src=<%=imgs[c]%> alt="memo" style="width:100%; object-fit: cover;height:300px;"/>     
+                                                                <img  src=<%=imgs[c]%> alt="memo"  style="width:100%; object-fit: cover;height:250px;"/>   
                                                                 <div class="product_info">
                                                                     <div class="product_info_text">
                                                                         <div class="product_info_text_inner">
