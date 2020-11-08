@@ -451,11 +451,11 @@ data1.map((item)=>{
 //     currentPage: currentPage});
 // })
 
-// app.listen(port, () => {
-//   console.log(`server running at port ${port}`);
-// });
+app.listen(port, () => {
+  console.log(`server running at port ${port}`);
+});
 
 
-app.listen(process.env.PORT, process.env.IP, function(){
-  console.log("server started");
-})
+// app.listen(process.env.PORT, process.env.IP, function(){
+//   console.log("server started");
+// })
