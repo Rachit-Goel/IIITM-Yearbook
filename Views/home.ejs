@@ -3,19 +3,146 @@
     <%if(home){%>
         <div class="col-lg-10 col-md-9 col-12 body_block align-content-center ">
             <div class="container">
+            <div class=" row ">
+                 <% ['ApnaGwalior',
+                  "IIITM's got talent",
+                   'Individual Headshots'
+                   ].forEach((items)=>{ %>  
+        
+                    <div class="col " style=" display:flex; justify-content:center; margin-bottom:20px">
+                        <%     var path = "/"+items.split(" ").join("");%>
+                        <a href=<%=path%> >
+                            <div class="card " style="width: 15rem; height:18rem">
+                                <img class="card-img-top "
+                                    src="https://cdn.theculturetrip.com/wp-content/uploads/2018/02/feature-image-v1-1.jpg "
+                                    alt="Card image cap " >   <!--style="width:398px; height:265.45" -->
+                                <div class="card-body " style="padding:0.6rem;">
+                                    <h5 class="card-title " style="margin-bottom: .3rem; font-size:15px;"> <%=items%> </h5>
+                                    <p class="card-text" style="font-size: 13px; line-height: 1.2;font-weight: 400; margin: 0 0 0px;">Folder description text</p>
+                                    <!-- <a href="# " class="btn btn-primary ">Go somewhere</a> -->
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+           <% }) %>  
+        
+        <% [ { col: 'Clubs', subcol: [ 'AASF', 'Rotaract', 'SGM', 'Uthaan' ] },
+         ].forEach((items)=>{ %> 
+                    <div class="col " style=" display:flex; justify-content:center; margin-bottom:20px">
+                        
+                            <div class="card " style="width: 15rem; ">
+                                <img class="card-img-top "
+                                    src="https://cdn.theculturetrip.com/wp-content/uploads/2018/02/feature-image-v1-1.jpg "
+                                    alt="Card image cap "
+                                    
+                                    >
+                                <div class="card-body " style="padding:0.6rem;">
+                                    <h5 class="card-title " style="margin-bottom: .3rem; font-size:15px;"> <%=items.col%> </h5>
+                                    <p class="card-text" style="font-size: 13px; line-height: 1.2;font-weight: 400; margin: 0 0 0px;">Folder description text</p>
+                                    <% items.subcol.forEach((subcat)=>{%>
+                                        <%  var path = "/"+items.col+"/"+subcat.split(" ").join("") %>
+                                        <button class="btn btn-primary " style="
+                                            background-color: #7c7c7c;
+                                            border: solid 0px #f8f9fa;
+                                            font-size: 10px;
+                                            padding: 5px 15px;
+                                            border-radius: 20px;
+                                            margin: 2px;
+                                        "> <a href= <%=path%> > <%= subcat%> </a> </button>
+                                    <% })%>
+                                    <!-- <a href="# " class="btn btn-primary ">Go somewhere</a> -->
+                                </div>
+                            </div>
+                
+                    </div>
+           <% }) %>
+        </div>
+        <div class=" row ">
+
+           <% [ { col: 'Trips', subcol: [ 'ICPC-Kerala-2017', 'ICPC-Kerala-2018', 'IIITM_Pahadi', 'Jaipur 2016', 'Manali2018', 'Mangalore and Mumbai 2017', 'Nainital 2017', 'OtherMLLTrips', 'Random', 'Shivpuri-2018', 'kasol-kheerganga-2018', 'kasol-tosh-2019', 'mysuru-2019', 'nandi-hills-2019', 'orchha-2018', 'shivpuri-2017' ] },
+         { col: 'year1', subcol: [ 'campus life', 'diwali', 'ganpati visarjan', 'independence day', 'infotsav', 'mom', 'parichay', 'twaran', 'urja' ] }
+           ].forEach((items)=>{ %> 
+                    <div class="col " style=" display:flex; justify-content:center; margin-bottom:20px">
+                        
+                            <div class="card " style="width: 33rem; height:28rem ">
+                                <img class="card-img-top "
+                                    src="https://cdn.theculturetrip.com/wp-content/uploads/2018/02/feature-image-v1-1.jpg "
+                                    alt="Card image cap " style="    height: 49%;">
+                                <div class="card-body " style="padding:0.6rem;">
+                                    <h5 class="card-title " style="margin-bottom: .3rem; font-size:15px;"> <%=items.col%> </h5>
+                                    <p class="card-text" style="font-size: 13px; line-height: 1.2;font-weight: 400; margin: 0 0 0px;">Folder description text</p>
+                                    <% items.subcol.forEach((subcat)=>{%>
+                                        <%  var path = "/"+items.col+"/"+subcat.split(" ").join("") %>
+                                        <button class="btn btn-primary " style="
+                                            background-color: #7c7c7c;
+                                            border: solid 0px #f8f9fa;
+                                            font-size: 10px;
+                                            padding: 5px 15px;
+                                            border-radius: 20px;
+                                            margin: 2px;
+                                        "> <a href= <%=path%> > <%= subcat%> </a> </button>
+                                    <% })%>
+                                    <!-- <a href="# " class="btn btn-primary ">Go somewhere</a> -->
+                                </div>
+                            </div>
+                
+                    </div>
+           <% }) %>
+        </div>
+        <div class=" row ">
+            <% [{ col: 'year2', subcol: [ 'campus life', 'infotsav', 'twaran', 'urja' ] },
+          { col: 'year3', subcol: [ 'aurora', 'campus life', 'inter-iiit sports meet', 'urja' ] },
+           { col: 'year4', subcol: [ 'campus life' ] },
+           { col: 'year5', subcol: [ 'campus life', 'random' ] }
+           ].forEach((items)=>{ %> 
+                    <div class="col " style=" display:flex; justify-content:center; margin-bottom:20px">
+                        
+                            <div class="card " style="width: 15rem; ">
+                                <img class="card-img-top "
+                                    src="https://cdn.theculturetrip.com/wp-content/uploads/2018/02/feature-image-v1-1.jpg "
+                                    alt="Card image cap ">
+                                <div class="card-body " style="padding:0.6rem;">
+                                    <h5 class="card-title " style="margin-bottom: .3rem; font-size:15px;"> <%=items.col%> </h5>
+                                    <p class="card-text" style="font-size: 13px; line-height: 1.2;font-weight: 400; margin: 0 0 0px;">Folder description text</p>
+                                    <% items.subcol.forEach((subcat)=>{%>
+                                        <%  var path = "/"+items.col+"/"+subcat.split(" ").join("") %>
+                                        <button class="btn btn-primary " style="
+                                            background-color: #7c7c7c;
+                                            border: solid 0px #f8f9fa;
+                                            font-size: 10px;
+                                            padding: 5px 15px;
+                                            border-radius: 20px;
+                                            margin: 2px;
+                                        "> <a href= <%=path%> > <%= subcat%> </a> </button>
+                                    <% })%>
+                                    <!-- <a href="# " class="btn btn-primary ">Go somewhere</a> -->
+                                </div>
+                            </div>
+                
+                    </div>
+           <% }) %>
+              
+        </div>
+        </div>
+
+        
+
+
+
+        <!-- <div class="col-lg-10 col-md-9 col-12 body_block align-content-center ">
+            <div class="container">
                 <div class=" row ">
                     <div class="col " style=" display:flex;align-items:center; justify-content:center; margin-bottom:20px">
                         <a href="/cat1 ">
                             <div class="card " style="width: 25rem; ">
                                 <img class="card-img-top " src="https://cdn.theculturetrip.com/wp-content/uploads/2018/02/feature-image-v1-1.jpg " alt="Card image cap " style="width:398px; height:265.45">
                                 <div class="card-body " style="padding:0.6rem;">
-                                    <h5 class="card-title " style="margin-bottom: .3rem; font-size:15px;">Category 1</h5>
-                                    <p class="card-text" style="font-size: 13px; line-height: 1.2;font-weight: 400;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <!-- <a href="# " class="btn btn-primary ">Go somewhere</a> -->
+                                    <h5 class="card-title " style="margin-bottom: .3rem; font-size:15px;">Apna Gwalior</h5>
+                                    <p class="card-text" style="font-size: 13px; line-height: 1.2;font-weight: 400;">Some quick example text.</p>
+                                    <a href="# " class="btn btn-primary ">Go somewhere</a>
                                 </div>
                             </div>
                         </a>
-
                     </div>
                     <div class="col " style=" display:flex;align-items:center; justify-content:center;margin-bottom:20px ">
                         <a href="/cat2 ">
@@ -24,7 +151,7 @@
                                 <div class="card-body " style="padding:0.6rem;">
                                     <h5 class="card-title " style="margin-bottom: .3rem; font-size:15px;">Category 2</h5>
                                     <p class="card-text" style="font-size: 13px; line-height: 1.2;font-weight: 400;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <!-- <a href="# " class="btn btn-primary ">Go somewhere</a> -->
+                                    <a href="# " class="btn btn-primary ">Go somewhere</a>
                                 </div>
                             </div>
                         </a>
@@ -37,7 +164,7 @@
                                 <div class="card-body " style="padding:0.6rem;">
                                     <h5 class="card-title " style="margin-bottom: .3rem; font-size:15px;">Category 3</h5>
                                     <p class="card-text" style="font-size: 13px; line-height: 1.2;font-weight: 400;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <!-- <a href="# " class="btn btn-primary ">Go somewhere</a> -->
+                                    <a href="# " class="btn btn-primary ">Go somewhere</a>
                                 </div>
                             </div>
                         </a>
@@ -49,15 +176,15 @@
                                 <div class="card-body " style="padding:0.6rem;">
                                     <h5 class="card-title " style="margin-bottom: .3rem; font-size:15px;">Category 4</h5>
                                     <p class="card-text" style="font-size: 13px; line-height: 1.2;font-weight: 400;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                    <!-- <a href="# " class="btn btn-primary ">Go somewhere</a> -->
+                                    <a href="# " class="btn btn-primary ">Go somewhere</a>
                                 </div>
                             </div>
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
-
-            <%}else{%>
-                <%- include('index-Copy.ejs',{imgs:imgs}) %>
-                    <%}%>
+        
+        <%}else{%>
+            <%- include('index-Copy.ejs',{imgs:imgs}) %>
+                <%}%>
