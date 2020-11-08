@@ -37,7 +37,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(bodyParser.json());
 
-app.use('/',require('./fetchDatafromFb'))
+app.use('/',require('./fetchDatafromFB'))
 //set default variables
 
 // var db =[]
