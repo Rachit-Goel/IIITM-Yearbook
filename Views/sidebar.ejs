@@ -85,9 +85,11 @@
                         <h4 class="side_title">filter by:</h4>
                         <ul id="filtr-container" class="filter_nav">
 
+
                             <li><a href="/ApnaGwalior">ApnaGwalior</a></li>
-                            <li><a href="/cat3">IIITM's got talent</a></li>
-                            <li><a href="/cat4">Individual Headshots</a></li>
+                            <li><a href="/IIITM'sgottalent">IIITM's got talent</a></li>
+                            <li><a href="/IndividualHeadshots">Individual Headshots</a></li>
+
                             <li>
                                 <a href="">Trips</a>
 
@@ -113,13 +115,13 @@
 
                                     <ul class="collapse list-unstyled" id="pageSubmenu">
                                         <% data.forEach(function(item){%>
-                                        <%     var path = "/Trips/"+item.split(" ").join("")%>
-                                        <li>
-                                            <a href= <%=path%> style="margin-left: 20px;">
+                                            <%     var path = "/Trips/"+item.split(" ").join("")%>
+                                                <li>
+                                                    <a href=< %=path%> style="margin-left: 20px;">
                                                 <%= item %>
                                             </a>
-                                        </li>
-                                        <% }) %>
+                                                </li>
+                                                <% }) %>
                                     </ul>
                             </li>
 
@@ -138,13 +140,13 @@
                                         'twaran',
                                         'urja'].forEach((item)=>{%>
                                         <%     var path = "/Year1/"+item.split(" ").join("")%>
-                                        <li>
-                                            <a href= <%=path%> style="margin-left: 20px;">
+                                            <li>
+                                                <a href=< %=path%> style="margin-left: 20px;">
                                                 <%= item %>
                                             </a>
-                                        </li>
+                                            </li>
 
-                                        <%}) %>
+                                            <%}) %>
                                 </ul>
                             </li>
 
@@ -156,14 +158,14 @@
                                  'infotsav', 
                                  'twaran', 
                                  'urja'].forEach((item)=>{ %>
-                                            <%     var path = "/Year2/"+item.split(" ").join("")%>
-                                        <li>
-                                            <a href= <%=path%> style="margin-left: 20px;">
+                                        <%     var path = "/Year2/"+item.split(" ").join("")%>
+                                            <li>
+                                                <a href=< %=path%> style="margin-left: 20px;">
                                                 <%= item %>
                                             </a>
-                                        </li>
+                                            </li>
 
-                                        <%}) %>
+                                            <%}) %>
                                 </ul>
                             </li>
 
@@ -172,14 +174,14 @@
                                 <a data-target="#pageSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" style="background-color:transparent"></a>
                                 <ul class="collapse list-unstyled" id="pageSubmenu3">
                                     <%[ 'aurora', 'campus life', 'inter-iiit sports meet', 'urja' ].forEach((item)=>{%>
-                                       <%     var path = "/Year3/"+item.split(" ").join("")%>
-                                        <li>
-                                            <a href= <%=path%> style="margin-left: 20px;">
+                                        <%     var path = "/Year3/"+item.split(" ").join("")%>
+                                            <li>
+                                                <a href=< %=path%> style="margin-left: 20px;">
                                                 <%= item %>
                                             </a>
-                                        </li>
+                                            </li>
 
-                                        <%}) %>
+                                            <%}) %>
                                 </ul>
                             </li>
 
@@ -190,13 +192,13 @@
                                     <%['campus life'
                                        ].forEach((item)=>{ %>
                                         <%     var path = "/Year4/"+item.split(" ").join("")%>
-                                        <li>
-                                            <a href= <%=path%> style="margin-left: 20px;">
+                                            <li>
+                                                <a href=< %=path%> style="margin-left: 20px;">
                                                 <%= item %>
                                             </a>
-                                        </li>
+                                            </li>
 
-                                        <%}) %>
+                                            <%}) %>
                                 </ul>
                             </li>
 
@@ -207,13 +209,13 @@
                                     <%[ 'campus life', 
                                        'random'].forEach((item)=>{ %>
                                         <%     var path = "/Year5/"+item.split(" ").join("")%>
-                                        <li>
-                                            <a href= <%=path%> style="margin-left: 20px;">
+                                            <li>
+                                                <a href=< %=path%> style="margin-left: 20px;">
                                                 <%= item %>
                                             </a>
-                                        </li>
+                                            </li>
 
-                                        <%}) %>
+                                            <%}) %>
                                 </ul>
                             </li>
 
@@ -226,13 +228,13 @@
                                       'SGM',
                                        'Uthaan'].forEach((item)=>{ %>
                                         <%     var path = "/Clubs/"+item.split(" ").join("")%>
-                                        <li>
-                                            <a href= <%=path%> style="margin-left: 20px;">
+                                            <li>
+                                                <a href=< %=path%> style="margin-left: 20px;">
                                                 <%= item %>
                                             </a>
-                                        </li>
+                                            </li>
 
-                                        <%}) %>
+                                            <%}) %>
                                 </ul>
                             </li>
 
