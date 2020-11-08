@@ -209,7 +209,7 @@ data3.forEach((item1)=>{
 
       axios({
         method: 'post',
-        url: 'http://localhost:3000/getdata',
+        url: 'http://iiitm-yearbook.herokuapp.com/getdata',
         headers: {
           // Overwrite Axios's automatically set Content-Type
           'Content-Type': 'application/json'
