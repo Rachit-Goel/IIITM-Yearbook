@@ -8,13 +8,13 @@ const admin = require('firebase-admin');
 var firebase = require("firebase");
 
 const firebaseConfig = {
-  apiKey: "AIzaSyChJRJp-JGGgd5-Uq_xcKUfcDvNb9SutYU",
+  apiKey: "******************************",
   authDomain: "yearbook-1131e.firebaseapp.com",
   databaseURL: "https://yearbook-1131e.firebaseio.com",
   projectId: "yearbook-1131e",
   storageBucket: "yearbook-1131e.appspot.com",
-  messagingSenderId: "693138307006",
-  appId: "1:693138307006:web:54f997d613456a3f5f2bef"
+  messagingSenderId: " ",
+  appId: " "
 };
 firebase.initializeApp(firebaseConfig);
 
