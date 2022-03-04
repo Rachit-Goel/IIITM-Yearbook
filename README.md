@@ -1,6 +1,6 @@
 # IIITM-Yearbook
 
-##Tech Stack
+## Tech Stack
 *NodeJS
 *ReactJS
 *ExpressJS
